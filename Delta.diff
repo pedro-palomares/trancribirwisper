@@ -1,13 +1,7 @@
 diff --git a/texto.txt b/texto.txt
-index 9d30d96..4c8d4ce 100644
+index 9d30d96..d6b7f76 100644
 --- a/texto.txt
 +++ b/texto.txt
-@@ -1,4 +1,4 @@
--Los subtítulos que acompañan este vídeo están generados con una
-+Los subtítulos que acompañan este vídeo están generados con unae
- inteligencia artificial, concretamente con Whisper. Whisper es un programa al
- que le puedes pasar un archivo de audio, como por ejemplo un mp3, y te va a
- escupir tal cual una transcripción de texto con las palabras que se dicen en
 @@ -10,51 +10,51 @@ puedes descargar con pip e instalar en tu ordenador. Y ahora en un momento os
  voy a hacer una demo con audios sacados de mi propio canal de YouTube para que
  veáis lo fácil que ha sido el proceso. No he necesitado prácticamente nada. He
