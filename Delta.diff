@@ -1,0 +1,277 @@
+diff --git a/texto.txt b/texto.txt
+index 9d30d96..4c8d4ce 100644
+--- a/texto.txt
++++ b/texto.txt
+@@ -1,4 +1,4 @@
+-Los subtítulos que acompañan este vídeo están generados con una
++Los subtítulos que acompañan este vídeo están generados con unae
+ inteligencia artificial, concretamente con Whisper. Whisper es un programa al
+ que le puedes pasar un archivo de audio, como por ejemplo un mp3, y te va a
+ escupir tal cual una transcripción de texto con las palabras que se dicen en
+@@ -10,51 +10,51 @@ puedes descargar con pip e instalar en tu ordenador. Y ahora en un momento os
+ voy a hacer una demo con audios sacados de mi propio canal de YouTube para que
+ veáis lo fácil que ha sido el proceso. No he necesitado prácticamente nada. He
+ utilizado mi PC gaming, que lleva una Nvidia 1660 de hace dos años, y que
+-utiliza una distribución de Aslinux, poco más. Siendo un producto de código
+-abierto la pregunta es, ¿esto funciona realmente? Funciona también, que da hasta
+-miedo, ahí tenéis los subtítulos y es que no los estáis viendo ya. De hecho, por
++utiliza una distribución de Arch Linux, poco más. Siendo un producto de código
++abierto la pregunta es, ¿esto funciona realmente? Funciona tan bien, que da hasta
++miedo, ahí tenéis los subtítulos si es que no los estáis viendo ya. De hecho, por
+ ser transparente, en la descripción os voy a enlazar a un archivo de texto que
+ contiene lo que me ha escupido tal cual Whisper, para que podáis compararlo. Voy a
+ dejar señalados los errores que he tenido que corregir y vais a ver que son
+ mínimos. Whisper es un programa que ha sido entrenado con 680.000 horas de datos
+-para poder aprender a transcribir y a reducir así de bien. Si tomas una
++para poder aprender a transcribir y a traducir así de bien. Si tomas una
+ calculadora, esos son 77 años de aprendizaje continuo. Eso es más que lo
+ que cualquier persona va a estar escuchando y aprendiendo a lo largo de
+-toda su vida. Normal que funcione también. Si queréis ejecutar Whisper por
++toda su vida. Normal que funcione tan bien. Si queréis ejecutar Whisper por
+ vuestra cuenta, ¿qué vais a necesitar? Os digo que no es demasiado. Primero, un
+ ordenador. Obviamente. Yo he utilizado Linux y Mac OS. Supongo que en Windows
+ también será posible, aunque no lo he llegado a probar. Python. No tengo mucho
+-más que decir, esta es fácil de sacar. FFMPG. Esta es un poquito peculiar, es un
++más que decir, esta es fácil de sacar. FFMPEG. Esta es un poquito peculiar, es un
+ programa que sirve para trabajar con archivos multimedia, quizás haya gente
+ que ya le suene. Si estás en Linux o Mac OS es muy fácil de obtener con un
+-gestor de paquetes. A lo mejor RAST. No debería hacerte falta, pero una de
++gestor de paquetes. A lo mejor Rust. No debería hacerte falta, pero una de
+ las dependencias lo pide, entonces a pesar de que intenta bajarse una
+-distribución binaria, si no la encuentra te va a pedir que instales RAST para
++distribución binaria, si no la encuentra te va a pedir que instales Rust para
+ poder compilarla de forma local. Y lo más probable, una tarjeta gráfica también
+-de la falta. No tiene que ser muy moderna. Yo estoy utilizando mi 1660, que no es
++te hará falta. No tiene que ser muy moderna. Yo estoy utilizando mi 1660, que no es
+ de lo último en tecnología, así que si tienes una más moderna seguramente esto
+ funcione mejor todavía. Pequeño paréntesis. ¿Dani, eso que veo ahí es un
+-Mac Mini? Sí, es mi nuevo Mac Mini equipado con un procesador M.2 Pro. Es un
++Mac Mini? Sí, es mi nuevo Mac Mini equipado con un procesador M2 Pro. Es un
+ ordenador de grado profesional y lleva un huevo de GPUs y de coprocesadores para
+ poder trabajar tan deprisa. Programar y editar vídeo en este ordenador es una
+ delicia. Y sin embargo, Whisper todavía no es compatible con su tarjeta gráfica.
+-Literal, para transcribirme una hora de vídeo necesito seis o siete horas, no lo
++Literal, para transcribirme una hora de vídeo necesitó seis o siete horas, no lo
+ sé, tampoco las conté. Humillante. Así que si tenéis un M1 o un M2 tened
+ paciencia porque seguramente no funcione tan bien. Y ahora sí, prendo el
+ ordenador y os cuento cómo lo he conseguido, ¿vale? Muy bien, pues ya estamos aquí en
+-mi ordenador y por si alguien se lo está preguntando, sí es y tres. Gracias por
++mi ordenador y por si alguien se lo está preguntando, sí es i3. Gracias por
+ preguntar, me acerco a los 30 años y cada cual lleva las crisis como quiere.
+ Aquí está el repositorio de OpenAI Whisper, vale, en su GitHub. Podéis
+-descargarlo, podéis instalarlo, podéis ver instrucciones, su RADME es bastante
++descargarlo, podéis instalarlo, podéis ver instrucciones, su README es bastante
+ detallado. Y lo que voy a hacer es, en este vídeo, pues también es instalarlo y
+ mostraros en tiempo real cómo se puede obtener una transcripción de un vídeo,
+ vale. Me voy a venir a mi página, vale, perdón por el tema claro, pero este es mi
+ panel de control, aquí es donde yo normalmente gestiono mi canal y todo eso
+ aparte del de YouTube. Y aquí lo que tengo es una lista con los vídeos sin
+ transcripción, la cual es muy valiosa realmente porque alimenta al buscador y
+-hace que cuando la gente pone en Máquigas.es algo en el campo de
++hace que cuando la gente pone en makigas.es algo en el campo de
+ búsqueda, pues obtenga resultados mucho más ricos, vale, y mucho más claros y que
+-no sea, o sea que si dentro de este vídeo se dice la palabra boolean, pues me
++no sea… o sea que si dentro de este vídeo se dice la palabra boolean, pues me
+ gustaría que saliese la tarjeta en el buscador porque si no nadie va a
+ encontrar el vídeo. Entonces voy a elegir uno de estos, por ejemplo, voy a elegir
+ este o mejor este por una razón muy simple y es que aquí hay palabras en
+@@ -63,23 +63,23 @@ vais a ver que realmente YouTube te saca transcripciones automáticas también,
+ embargo quiero compararlas porque la transcripción de YouTube generalmente no
+ es muy buena, vale, y normalmente tiene falsos positivos, por ejemplo, aquí
+ seguramente quise decir build en el sentido de construcción o compilación
+-y esto entendió build tal cual, que no tiene sentido, o aquí donde pone start
++y esto entendió bild tal cual, que no tiene sentido, o aquí donde pone estar
+ disip, instalar y run, vale, esto no sé lo que dije pero tiene pinta que no es
+-lo correcto, entonces vamos a ver qué quise decir realmente y se lo voy a
++lo correcto, entonces vamos a ver qué quise decir realmente. Y se lo voy a
+ pedir a Whisper, así que lo que voy a hacer es descargarme el vídeo, que es una
+ cosa que desde el panel de control de YouTube sí que puedo hacer, y mientras
+-esto va ocurriendo voy a instalar Whisper esencialmente, que
+-necesitamos para instalar Whisper es lo que os contaba acá, nos hará falta
+-FMPPG, posiblemente RAS, vamos a tirar sin RAS para ver si aguanta, y luego una
+-cosa que el reazmeno dice pero que creo que es importante es instalar CUDA
++esto va ocurriendo voy a instalar Whisper esencialmente. ¿Qué
++necesitamos para instalar Whisper? es lo que os contaba acá, nos hará falta
++FFMPEG, posiblemente Rust, vamos a tirar sin Rust para ver si aguanta, y luego una
++cosa que el README no dice pero que creo que es importante es instalar CUDA
+ porque yo estoy usando mi Nvidia, entonces creo que CUDA no está instalado,
+-voy a hacer por si acaso sudo pacman-scuda para asegurarme de que se
++voy a hacer por si acaso sudo pacman -s cuda para asegurarme de que se
+ instale, efectivamente no estaba instalado, vale, pues voy a dejar que se
+ descargue y que se instale, y yo mientras tanto lo que voy a ir haciendo es instalando
+ Whisper, que esto se hace con pip install, y mira yo llevo demasiado tiempo
+ sin trabajar en mi día a día con Python, entonces algunas cosas se me han
+ olvidado, yo recuerdo que la última vez que estuve por acá había una pelea entre
+-poetry y pipenv era como que había que elegir cuál era el mejor gestor de
++poetry y pipenv, era como que había que elegir cuál era el mejor gestor de
+ paquetes, no tengo tiempo de decidir qué es lo más correcto y cuál de los dos
+ mola, así que lo que voy a hacer es crear un virtualenv, y a partir de ahora si
+ hago pip se instalará aquí dentro sin ensuciarme el ordenador para que luego
+@@ -89,102 +89,102 @@ directorio al cual voy a llamar transcription para hacer la prueba y voy a
+ traerme de mi carpeta de descargas el vídeo sobre el que he descargado,
+ ok, ahí está, y ahora lo que voy a hacer es instalar
+ Whisper, simplemente voy a copiar el comando de instalación y vamos a
+-esperar que salga lo mejor posible, vale, en lo que esto se va haciendo creo que
+-mejor voy a aprovechar el tiempo y os cuento un poco cómo funciona esto,
++esperar que salga lo mejor posible. Vale, en lo que esto se va haciendo creo que
++mejor voy a aprovechar el tiempo y os cuento un poco cómo funciona esto.
+ Whisper expone un programa al cual le vas a pasar tal cual una ruta al archivo
+ que tú quieras transcribir, en este caso por ejemplo te ponen audio.flac y
+-audio.mp3, y le dices el modelo que quieres utilizar, existen varios modelos
++audio.mp3, y le dices el modelo que quieres utilizar. Existen varios modelos
+ y tampoco he terminado de entender muy bien cuál es la diferencia entre cada
+ una, aparte del tamaño, la memoria que requiere y la velocidad relativa, sí que
+ sé que no tengo tanta VRAM en esta tarjeta gráfica como para permitirme
+-el largue, por otra parte con la opción menos menos language le podéis pedir que
++el large. Por otra parte con la opción --language le podéis pedir que
+ os traduzca o que se entienda en un idioma concreto y es que Whisper sabe
+ hablar más idiomas y de hecho aquí tenéis la gráfica con la complejidad de
+ cada idioma, es gracioso porque algunos idiomas son mejores que otros, vale, en
+ esta gráfica el valor más pequeño es mejor y justo curiosamente el español es
+ el idioma más fácil de comprender para la inteligencia de algún modo porque
+ tiene una complejidad de tres, ahí tenemos varios como el inglés, el portugués, el
+-indonesio y finalmente uno de los más complicados que son el belorruso y el
+-nepalí y una de las cosas que más me fascina es el hecho de que a Whisper no
++indonesio y finalmente uno de los más complicados que son el bielorruso y el
++nepalí. Y una de las cosas que más me fascina es el hecho de que a Whisper no
+ solamente le puedes pedir que te transcriba sino le puedes pedir que te
+ traduzca también, si le pones la opción translate te va a traducir después de
+-entender y te lo va a pasar inglés, en fin simplemente para cerrar esto deciros
+-que si sabéis Python también podéis importar directamente el paquete Whisper
++entender y te lo va a pasar inglés. En fin, simplemente para cerrar esto deciros
++que si sabéis Python también podéis importar directamente el paquete whisper
+ y hacer locuras en código fuente, lo cual puede ser bastante interesante para
+-mejorar la herramienta, muy bien ha terminado el proceso de instalación así
++mejorar la herramienta. Muy bien ha terminado el proceso de instalación así
+ que lo que voy a hacer es mostraros en tiempo real cómo funciona ese Whisper,
+ voy a llamar a Whisper y voy a ponerle la ruta a mi archivo que quiero que me
+-transcriba, en este caso tutorial de Gradle, voy a ponerle que quiero que me
++transcriba, en este caso “tutorial de Gradle”, voy a ponerle que quiero que me
+ reconozca el idioma español y voy a pedirle que el modelo utilice la versión
+-medium, ya digo posiblemente con small debería comparar a ver qué
+-resultados obtengo porque no lo tengo todavía muy claro pero desde luego en
++medium. Ya digo, posiblemente con small debería comparar a ver qué
++resultados obtengo porque no lo tengo todavía muy claro, pero desde luego en
+ large no me va a caber porque no tengo tanta rame en mi tarjeta gráfica
+ así que no va a funcionar muy bien, una cosa que vais a notar ahora es que
+-cuando terminé de descargarse el modelo que es lo primero que tiene que hacer
++cuando terminé de descargarse el modelo, que es lo primero que tiene que hacer,
+ seguramente el bitrate del vídeo y la calidad baje bastante y el ratón se
+-empieza a laggear porque al fin y al cabo voy a utilizar la gpu vale y a la
+-vez estoy usando la gpu para grabar esto, de hecho para que lo veáis bien una
+-cosa que voy a hacer es ejecutar un programa que se va a llamar mbitop
+-que es un programa que nos muestra el estado de la tarjeta gráfica,
+-esencialmente esto me dice qué cosas están usando la tarjeta gráfica ahora
+-mismo y cómo anda de recursos, aquí estáis viendo que está el OBS abierto
+-porque es con lo que estoy grabando, también vemos firefox porque lo tengo
+-abierto casi que me conviene cerrarlo, vemos alacrity porque al fin al cabo
+-estas terminales son alacrity así que usan una aceleración gráfica, voy a
+-cerrar firefox porque en este momento tampoco lo necesito y así liberaré un
+-poquito de recursos porque lo que vais a notar es que cuando empiece a
++empiece a laggear porque al fin y al cabo voy a utilizar la GPU, vale, y a la
++vez estoy usando la GPU para grabar esto. De hecho para que lo veáis bien una
++cosa que voy a hacer es ejecutar un programa que se va a llamar nvitop,
++que es un programa que nos muestra el estado de la tarjeta gráfica.
++Esencialmente esto me dice qué cosas están usando la tarjeta gráfica ahora
++mismo y cómo anda de recursos. Aquí estáis viendo que está el OBS abierto
++porque es con lo que estoy grabando, también vemos Firefox porque lo tengo
++abierto, casi que me conviene cerrarlo, vemos Alacritty porque al fin al cabo
++estas terminales son Alacritty así que usan una aceleración gráfica… voy a
++cerrar Firefox porque en este momento tampoco lo necesito y así liberaré un
++poquito de recursos, porque lo que vais a notar es que cuando empiece a
+ transcribir esto va a subir y el vídeo va a dejar de verse tan bien como se está
+-viendo ahora mismo, ahí ha aparecido el proceso whisper vale mis ventiladores
+-están empezando a hacer ruido y mi gpu ha empezado a hacer ruidos raros o sea
++viendo ahora mismo. Ahí ha aparecido el proceso whisper. Vale mis ventiladores
++están empezando a hacer ruido y mi GPU ha empezado a hacer ruidos raros o sea
+ que eso significa que está en marcha y estoy viendo el OBS que ya estoy
+-perdiendo frames así que eso significa que ya está en marcha trabajando vale
+-vamos a esperar un poquito y en breve empezarán a salir letras con lo que se
+-dice en el vídeo, ahí están las letras apareciendo, muy bien pues ya
++perdiendo frames así que eso significa que ya está en marcha trabajando, vale.
++Vamos a esperar un poquito y en breve empezarán a salir letras con lo que se
++dice en el vídeo. Ahí están las letras apareciendo. Muy bien pues ya ha
+ terminado la transcripción mi ordenador ha vuelto a la normalidad y ya también
+-el OBS está grabando como debe ser entonces vamos a cerrar en beat up y
+-vamos a ver qué es lo que nos ha transcrito, muy bien pues aquí tengo mi
++el OBS está grabando como debe ser, entonces vamos a cerrar nvitop, y
++vamos a ver qué es lo que nos ha transcrito. Muy bien pues aquí tengo mi
+ archivo de vídeo del cual ha sacado las múltiples versiones de la
+-transcripción vale tenemos la versión TXT que esta es la que voy a utilizar
+-principalmente porque no tienen marcas de tiempo pero si queréis ir un poquito
++transcripción. Tenemos la versión TXT que esta es la que voy a utilizar
++principalmente porque no tienen marcas de tiempo, pero si queréis ir un poquito
+ más deprisa tenéis versiones en SRT y en VTT yo personalmente no los voy a
+-utilizar por una razón muy simple y es que los archivos SRT que me genera y los
+-archivos VTT las frases creo que son muy largas para los subtítulos y creo que
+-va a dar tiempo a leerlo un poco regular porque hay mucho texto entonces prefiero
+-usar la versión en TXT y dejar que youtube le ponga automáticamente las
++utilizar por una razón muy simple, y es que los archivos SRT que me genera y los
++archivos VTT, las frases creo que son muy largas para los subtítulos y creo que
++va a dar tiempo a leerlo un poco regular porque hay mucho texto. Entonces prefiero
++usar la versión en TXT y dejar que YouTube le ponga automáticamente las
+ divisiones de las marcas de tiempo para que así los subtítulos sean más
+-fáciles de leer que tengo la sensación que youtube lo hará mejor que OpenAI en
+-ese sentido pero voy a comparar esencialmente la transcripción que me
+-ha generado OpenAI con la que me genera youtube para ver los falsos positivos
+-como van vale y aquí dos cosas que me gustan bastante de OpenAI en comparación
+-con lo que hace youtube para empezar OpenAI no solamente es capaz de
+-reconocer lo que dices sino también es capaz de entonarlo correctamente y sabe
+-poner las comas y los puntos lo cual considero que es bastante importante la
++fáciles de leer, que tengo la sensación que YouTube lo hará mejor que OpenAI en
++ese sentido, pero voy a comparar esencialmente la transcripción que me
++ha generado OpenAI con la que me genera YouTube para ver los falsos positivos
++como van. Vale, y aquí dos cosas que me gustan bastante de OpenAI en comparación
++con lo que hace YouTube para empezar OpenAI no solamente es capaz de
++reconocer lo que dices, sino también es capaz de entonarlo correctamente y sabe
++poner las comas y los puntos, lo cual considero que es bastante importante la
+ transcripción automática que genera youtube está bien porque sabe poner las
+ palabras automáticamente pero también es cierto que no tiene ni un punto ni una
+-coma y eso para leerlo es bastante complicado y sobre todo a mí para poder
++coma, y eso para leerlo es bastante complicado y sobre todo a mí para poder
+ limpiarlo es muy difícil porque tengo que ocuparme de escuchar el vídeo para
+-saber dónde van las comas en cambio con whisper ya lo puede hacer
+-automáticamente y sabe dónde se supone que van las comas luego tenemos los
+-casos más obvios de falsos positivos que se pilla por uno y por otro por
++saber dónde van las comas en cambio con Whisper ya lo puede hacer
++automáticamente y sabe dónde se supone que van las comas. Luego tenemos los
++casos más obvios de falsos positivos que se pilla por uno y por otro. Por
+ ejemplo teníamos que ejecutar Gradle build teníamos que buscar el jar y
+-teníamos que correrlo esto la transcripción de youtube que me ha
++teníamos que correrlo, esto la transcripción de youtube que me ha
+ generado gradle build ha entendido de la del build y luego en vez de jar me ha
+-comprendido como jar y realmente ahí está porque luego el resto de frases
+-sigue está bien por ejemplo aquí al final me he entendido ahora mundo cuando
+-quería decir hola mundo no es perfecta obviamente por ejemplo gradle
+-menosculo juntado como una palabra hemos visto lo de instola ppi gradle tasks
++comprendido como hard, y realmente ahí está porque luego el resto de frases
++sí que está bien.Por ejemplo aquí al final me he entendido ahora mundo cuando
++quería decir hola mundo. No es perfecta obviamente por ejemplo gradle
++-q juntado como una palabra. Hemos visto lo de InstallApp y GradleTasks,
+ que no está mal porque realmente he entendido las palabras pero la forma de
+-escribirlo no es la más correcta pero me sorprende que ha entendido lo que le
+-queríamos decir y luego por supuesto algunos casos incorrectos como por
+-ejemplo que en vez de entender IDE como IDE que es entorno de desarrollo
+-integrado lo ha entendido como ides aunque bueno youtube ha entendido ideas
+-o sea que casi que mejor ides que ideas pero en definitiva estáis viendo que
++escribirlo no es la más correcta, pero me sorprende que ha entendido lo que le
++queríamos decir, y luego por supuesto algunos casos incorrectos como por
++ejemplo que en vez de entender IDE como IDE, que es entorno de desarrollo
++integrado, lo ha entendido como IDs aunque bueno youtube ha entendido ideas
++o sea que casi que mejor IDs que ideas. Pero en definitiva estáis viendo que
+ esta herramienta tiene muchísimo potencial y que literalmente con
+-cualquier tarjeta gráfica va a ser capaz de correr tengo bastantes ganas de
++cualquier tarjeta gráfica va a ser capaz de correr. Tengo bastantes ganas de
+ trabajar con esto y evidentemente voy a tener que limpiar un poquito la salida
+ pero estoy bastante convencido de que me va a ayudar a ahorrar bastante tiempo a
+-la hora de generar transcripciones entonces eso sería todo por mi parte
+-whisper si os molan estas cosas ahí tenéis las herramientas las podéis
+-descargar libremente en vuestros ordenadores y a ver qué se os ocurre
+-ahora un mundo de posibilidades bastante fascinante nos vemos en próximos vídeos
+-un saludo y hasta luego
++la hora de generar transcripciones. Entonces eso sería todo por mi parte.
++Whisper. si os molan estas cosas, ahí tenéis las herramientas las podéis
++descargar libremente en vuestros ordenadores, y a ver qué se os ocurre.
++Abre un mundo de posibilidades bastante fascinante. Nos vemos en próximos vídeos,
++un saludo y hasta luego
+\ No newline at end of file
